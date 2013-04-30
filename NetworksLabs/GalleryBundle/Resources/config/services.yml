@@ -1,0 +1,13 @@
+parameters:
+    networks_labs_gallery.class: NetworksLabs\GalleryBundle\Gallery\Gallery
+    twig.extension.class: NetworksLabs\GalleryBundle\Twig\Extension\GalleryExtension 
+
+services:
+    networks_labs_gallery:
+        class: %networks_labs_gallery.class%
+        arguments: [%networks_labs_gallery%]
+    networks_labs_gallery.twig.extension:
+        class: %twig.extension.class%
+        arguments: [@service_container]
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,7 @@
+
+NetworksLabs\GalleryBundle\Form\Data\UploadPicType:
+    properties:
+        file:
+            - File:
+                mimeTypes: [image/gif, image/png, image/jpeg, image/jpg ]
+                mimeTypesMessage: Please upload a valid image 

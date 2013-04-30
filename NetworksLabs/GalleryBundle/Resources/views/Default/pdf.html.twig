@@ -1,0 +1,56 @@
+<html>
+<head>
+<link href="{{asset('bundles/networkslabsgallery/css/base.css')}}" media="screen" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div id="phototheque">
+	<div class="titre">Ajouter un pdf :</div>
+	<div id="add">
+	<span class="error">{{message}}</span>
+	<div id="form-content">
+	<form action="{{path('NetworksLabsGalleryBundle_pdf')}}" method="post" {{ form_enctype(form) }}>
+            {{form_errors(form.file)}}<br/>
+            {{form_label(form.file,'Image',{'attr':{'style':'width:50px;'}})}} {{form_widget(form.file)}}
+            {{form_rest(form)}}
+	    <input type="submit" id="submit" value="" name="submit" style="margin-left:0;" />
+	</form>
+	</div>
+	</div>
+	<div class="titre">Selectionner un document :</div>
+	<div id="photos">
+    {%if files|length>0%}
+	<ul id="photo-list">
+	    {%for image in files%}
+		<li>
+		    <img class="vignette" data-pdf="{{asset('/enews/upload/pdf/'~image.getRelativePathName())}}" src="{{asset(get_picto_for_img(image.getRelativePathName()))}}" align="absmiddle"/>
+		    <br/>
+
+		   <!--<input type="text" size="20" value="{{asset('/enews/pdf/'~image.getRelativePathName())}}" />-->
+		    <div class="delete">
+                {{image.getRelativePathName()|slice(32)}}<br/>
+		        <a href="{{url('NetworksLabsGalleryBundle_deletepdf', {'picture':image.getRelativePathName()|slice(0,32)})}}">supprimer</a>
+		    </div>
+		</li>
+	    {%endfor%}
+	</ul>
+    {%endif%}
+	</div>
+
+</div>
+{%block javascripts%}
+   <script type="text/javascript" src="{{asset('bundles/networkslabsgallery/js/jquery-1.7.1.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('bundles/networkslabsgallery/js/common.js')}}"></script>
+   <script type="text/javascript">
+    $(document).ready(function(){
+        $('img.vignette').on('dblclick', function(){
+            var img = $(this);
+            if (!window.location.origin) window.location.origin = window.location.protocol+"//"+window.location.host;
+            $(window.opener.document).find('[title=UrlHref]').find('input').val(location.origin+img.data('pdf'))
+            alert('Document inséré');
+        })
+    });
+   </script>
+{%endblock%}
+</body>
+</html>

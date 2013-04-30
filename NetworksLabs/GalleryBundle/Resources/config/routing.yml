@@ -1,0 +1,22 @@
+NetworksLabsGalleryBundle_homepage:
+    pattern:  /
+    defaults: { _controller: NetworksLabsGalleryBundle:Default:index }
+
+NetworksLabsGalleryBundle_pdf:
+    pattern:  /pdf
+    defaults: { _controller: NetworksLabsGalleryBundle:Default:pdf }
+
+
+
+NetworksLabsGalleryBundle_delete:
+    pattern:  /delete/{picture}
+    defaults: { _controller: NetworksLabsGalleryBundle:Default:delete }
+
+
+NetworksLabsGalleryBundle_deletepdf:
+    pattern:  /deletepdf/{picture}
+    defaults: { _controller: NetworksLabsGalleryBundle:Default:deletepdf }
+
+NetworksLabsGalleryBundle_nicedit_upload:
+    pattern:  /niceEditUpload
+    defaults: { _controller: NetworksLabsGalleryBundle:Default:niceditupload }

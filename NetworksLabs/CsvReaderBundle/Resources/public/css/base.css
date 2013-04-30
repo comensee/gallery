@@ -1,0 +1,11 @@
+.import-ok{
+    background:url('/bundles/networkslabscsvreader/img/validation-icons.jpg') 30px 0px;    
+    width:35px;
+    height:35px;
+}
+
+.import-failed{
+    background:url('/bundles/networkslabscsvreader/img/validation-icons.jpg') 33px 35px;    
+    width:35px;
+    height:35px;
+}
