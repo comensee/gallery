@@ -1,0 +1,18 @@
+{
+    "name": "comensee/gallery",
+    "description": "Simple Image upload",
+    "authors": [
+        {
+            "name": "Alain Bangoula",
+            "email": "alain@come-n-see.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-0": { "NetworksLabs\\GalleryBundle": "" }
+    },
+}
