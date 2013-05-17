@@ -25,6 +25,7 @@ class Configuration implements ConfigurationInterface
                                 ->useAttributeAsKey('id')
                                 ->prototype('array')->children() 
                                     ->variableNode('upload_dir')->defaultValue("%kernel.root_dir%")->end()
+                                    ->variableNode('upload_width')->end()
                                     ->variableNode('upload_height')->end();
 
         // Here you should define the parameters that are allowed to
